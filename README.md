@@ -112,5 +112,6 @@ Para el desarrollo matemático y computacional paso a paso de `imitation.py` (va
 
 ## 👥 Autores
 
-* **Jefferson [Tu Apellido]** — Ingeniería en Telecomunicaciones, Universidad Militar Nueva Granada
-* **[Nombre Completo Compañero]** — Ingeniería en Telecomunicaciones, Universidad Militar Nueva Granada
+* **Jefferson Arley Fontecha Soler** — Ingeniería en Telecomunicaciones, Universidad Militar Nueva Granada
+* **Juan Pablo Cano Chávez** — Ingeniería en Telecomunicaciones, Universidad Militar Nueva Granada
+* **Samuel Tomas Daza Cordero** — Ingeniería en Telecomunicaciones, Universidad Militar Nueva Granada
