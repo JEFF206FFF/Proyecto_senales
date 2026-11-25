@@ -84,11 +84,11 @@ python metricas.py
 
 | Mensaje secreto | SNR (dB) | Correlación de Pearson |
 | :--- | :---: | :---: |
-| Secret 1 | *Pegar resultado de metricas.py* | *Pegar resultado de metricas.py* |
-| Secret 2 | *Pegar resultado de metricas.py* | *Pegar resultado de metricas.py* |
-| Secret 3 | *Pegar resultado de metricas.py* | *Pegar resultado de metricas.py* |
-| Secret 4 | *Pegar resultado de metricas.py* | *Pegar resultado de metricas.py* |
-| Secret 5 | *Pegar resultado de metricas.py* | *Pegar resultado de metricas.py* |
+| Secret 1 | 152.42 | 1.000000000000 |
+| Secret 2 | 152.21 | 1.000000000000 |
+| Secret 3 | 152.41 | 1.000000000000 |
+| Secret 4 | 152.37 | 1.000000000000 |
+| Secret 5 | 152.27 | 1.000000000000 |
 
 ### 🔎 Análisis de calidad de reconstrucción
 
