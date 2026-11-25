@@ -11,18 +11,25 @@ print("| Mensaje secreto | SNR (dB) | Correlación de Pearson |")
 print("| :--- | :---: | :---: |")
 
 for i in range(1, 6):
-    # Cargar original y recuperado en la misma escala
-    _, orig = read(f'audios/originales/secret{i}.wav')
-    orig = orig.astype(float) / (2**31)
+    # Cargar original x[n] y recuperado x_hat[n] en la misma escala
+    _, x = read(f'audios/originales/secret{i}.wav')
+    x = x.astype(float) / (2**31)
     
-    _, rec = read(f'audios/recovered/recovered_{i}.wav')
-    rec = rec.astype(float)
+    _, x_hat = read(f'audios/recovered/recovered_{i}.wav')
+    x_hat = x_hat.astype(float)
     
-    # 1. Cálculo de SNR (dB)
-    snr = 10 * np.log10(np.sum(orig**2) / np.sum((orig - rec)**2))
+    # 1. Cálculo explícito de SNR (dB)
+    numerador_snr = np.sum(x**2)
+    denominador_snr = np.sum((x - x_hat)**2)
+    snr = 10 * np.log10(numerador_snr / denominador_snr)
     
-    # 2. Cálculo de Correlación de Pearson
-    pearson = np.corrcoef(orig, rec)[0, 1]
+    # 2. Cálculo explícito de Correlación de Pearson
+    x_prom = np.mean(x)
+    x_hat_prom = np.mean(x_hat)
+    
+    numerador_p = np.sum((x - x_prom) * (x_hat - x_hat_prom))
+    denominador_p = np.sqrt(np.sum((x - x_prom)**2)) * np.sqrt(np.sum((x_hat - x_hat_prom)**2))
+    pearson = numerador_p / denominador_p
     
     print(f"| Secret {i} | {snr:.2f} | {pearson:.12f} |")
     
@@ -36,7 +43,7 @@ for i in range(1, 6):
         f = rfftfreq(N, 1/fs)
         
         T_mag = np.abs(rfft(target))
-        S_mag = np.abs(rfft(orig))
+        S_mag = np.abs(rfft(x))
         E_mag = np.abs(rfft(enc))
         
         # Gráfica 1: Dominio temporal (Target vs Secret)
@@ -46,7 +53,7 @@ for i in range(1, 6):
         plt.title('Target - Dominio temporal')
         plt.ylabel('Amplitud')
         plt.subplot(2, 1, 2)
-        plt.plot(t, orig)
+        plt.plot(t, x)
         plt.title('Secret 1 - Dominio temporal')
         plt.xlabel('Tiempo (s)')
         plt.ylabel('Amplitud')
