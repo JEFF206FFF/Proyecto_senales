@@ -25,7 +25,7 @@ Proyecto_Analisis_Senales/
 ```
 
 ---
-
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JEFF206FFF/Proyecto_senales/blob/main/Ejecutar_en_Colab.ipynb)
 ## ▶️ Orden de ejecución
 
 ```bash
